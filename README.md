@@ -119,6 +119,54 @@ For eg:
 * Each controller, directive or service can further have their own module defined.
 * Each folder has 'index.js' where the module is defined for that folder
 
+## Using gulp - Explanation
 
-## Gulp File - Explanation
+Gulp file is divided into four parts as explained below:
+
+* First part contains all the modules to be required.
+
+```javascript
+var gulp = require('gulp'),
+	uglify = require('gulp-uglify'),
+	concat = require('gulp-concat'),
+	browserSync = require('browser-sync'),
+	reload = browserSync.reload,
+	rename = require('gulp-rename'),
+	plumber = require('gulp-plumber'),
+	del = require('del'),
+	sourcemaps = require('gulp-sourcemaps');
+```
+
+* Second part contains all the gulp tasks such as 'script','html','css' etc.
+
+```javascript
+gulp.task('scripts', function(){
+	gulp.src(config.customScript)
+	    .pipe(plumber())
+		.pipe(sourcemaps.init())
+		.pipe(uglify())
+		.pipe(concat('script.min.js'))
+		.pipe(sourcemaps.write('maps'))
+		.pipe(gulp.dest('static'))
+		.pipe(reload({stream: true}));
+
+	gulp.src(config.thirdPartyScript)
+		.pipe(plumber())
+		.pipe(concat('lib.min.js'))
+		.pipe(gulp.dest('static'))
+		.pipe(reload({stream: true}));
+})
+```
+
+* Third part contains all the watchers (if any) used in the gulpfile. These watchers will keep an eye on the files passed and will fire the tasks given any changes in those file occur.
+
+```javascript
+gulp.task('watch', function(){
+	gulp.watch(['static/*.js','static/app/**/*.js', '!static/app/*.min.js'], ['scripts']);
+	gulp.watch(['!*.html'], ['html']);
+	gulp.watch(['static/assets/css/*.css'], ['css']);
+});
+```
+
+* Fourth part (which is optional) can contain the default task which will run the tasks passed when 'gulp' command is run on the command-line interface
 
