@@ -179,4 +179,4 @@ Gulp helps to fire the browser-sync tasks whenever the mentioned files are chang
 
 Anyone can contribute to make this even better!
 
-Eg. Test cases, Backend code integration architecture and more good practices etc.
+Eg. Test cases, Backend code integration architecture and more good practices etc!
