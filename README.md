@@ -170,3 +170,13 @@ gulp.task('watch', function(){
 
 * Fourth part (which is optional) can contain the default task which will run the tasks passed when 'gulp' command is run on the command-line interface
 
+## Live reloading
+
+The live reloading is made possible using [browser-sync](https://www.npmjs.com/package/browser-sync)
+Gulp helps to fire the browser-sync tasks whenever the mentioned files are changes. This helps in live reloading
+
+## Contributing
+
+Anyone can contribute to make this even better!
+
+Eg. Test cases, Backend code integration architecture and more good practices etc.
