@@ -70,7 +70,7 @@ This is because when the code is 'uglified' using gulp, strings are not uglified
 
 	]);
 ```
-* The modules which are a dependency are written as 'myApp.<sub_module_name>. This chain will be followed as the nesting grows as done in index.js present in the controllers folder
+* The modules which are a dependency are written as 'myApp.{{sub_module_name}}. This chain will be followed as the nesting grows as done in index.js present in the controllers folder
 
 For eg:
 ```javascript
@@ -82,7 +82,7 @@ For eg:
 
 		//controllers
 		'myApp.home.controllers'
-
+		//myApp.{{subModuleName}}.{{subsubModuleName}}	
 		//services and directives can be a different module and listed here as dependency
 
 	])
