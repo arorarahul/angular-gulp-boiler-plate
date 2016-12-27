@@ -19,7 +19,7 @@ var config = {
 	 	'!node_modules/angular/*.min.min.js',
 	 	'node_modules/angular-ui-router/release/angular-ui-router.min.js', 
 	]
-}
+};
 
 //task to delete the existing js files (if any) made by gulp
 gulp.task('clean', function(){
